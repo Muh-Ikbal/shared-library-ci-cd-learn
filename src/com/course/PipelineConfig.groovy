@@ -40,7 +40,7 @@ class PipelineConfig implements Serializable {
 
         cfg.appName            = raw.get('appName') ?: raw.get('app_name') ?: 'app'
         cfg.language           = raw.get('language', 'generic')
-        cfg.enableSecurityScan = raw.containsKey('enableSecurityScan') ? raw.get('enableSecurityScan') : (raw.containsKey('enable_security_scan') ? raw.get('enable_security_scan') : true) as Boolean
+        cfg.enableSecurityScan = raw.containsKey('enableSecurityScan') ? raw.get('enableSecurityScan') : (raw.containsKey('enable_security_scan') ? raw.get('enable_security_scan') : false) as Boolean
 
         def test = raw.get('test')
         if (test instanceof Map) {

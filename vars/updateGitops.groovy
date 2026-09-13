@@ -21,7 +21,7 @@ def call(PipelineConfig cfg, String buildNumber, String prNum = '') {
 
     lock('gitops') {
         withCredentials([usernamePassword(
-            credentialsId: 'github-jenkins-token',
+            credentialsId: 'jenkins-ci-token',
             usernameVariable: 'GIT_USER',
             passwordVariable: 'GIT_TOKEN'
         )]) {

@@ -38,7 +38,7 @@ def call(Map args = [:]) {
                 branchName = env.pr_base_branch ?: args.get('buildBranch') ?: 'development'
 
                 git branch: branchName,
-                    credentialsId: 'github-jenkins-token',
+                    credentialsId: 'jenkins-ci-token',
                     url: appRepoUrl
 
                 gitSha = sh(script: 'git rev-parse --short HEAD', returnStdout: true).trim()
