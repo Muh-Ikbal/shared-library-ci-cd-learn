@@ -33,7 +33,7 @@ def call(PipelineConfig cfg, String buildNumber) {
         echo "Building dengan Docker (BuildKit enabled): ${image}"
 
         def gitSha = sh(script: 'git rev-parse --short HEAD', returnStdout: true).trim()
-        def gitMsg = sh(script: 'git log -1 --pretty=%s', returnStdout: true).trim().replace('"', '\\"')
+        def gitMsg = sh(script: 'git log -1 --pretty=%s', returnStdout: true).trim().replace('"', '\\"').replace("'","")
 
         sh """
             DOCKER_BUILDKIT=1 docker build \
